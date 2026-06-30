@@ -3,7 +3,7 @@
 Brighton, England | 07562248838 | malinanderson97@gmail.com
 
 ## Professional Summary
-Second-year Politics, Philosophy & Economics (PPE) student and Cultural Policy Researcher combining rigorous academic methodologies with extensive experience in data analytics, market research, and strategic communications. Adept at translating complex cultural and market data into actionable insights and thought leadership content. Seeking to leverage quantitative analysis, structural analysis, and executive writing skills to support policy, research, or operational projects.
+Second-year Politics, Philosophy & Economics (PPE) student and Cultural Policy Researcher combining rigorous academic methodologies with hands-on experience in market research, digital strategy, and business operations. Adept at applying quantitative concepts and structured logic to real-world projects, from independent application development to event management. Seeking to leverage quantitative analysis, structural analysis, and executive writing skills to support policy, research, or operational projects.
 
 ## Education
 **Politics, Philosophy & Economics Student | Sussex University**
@@ -58,7 +58,7 @@ March 2019 - September 2020
 
 ## Core Competencies
 
-* **Research & Analysis:** In-depth Market Research, Data & Google Analytics, Macroeconomic Modeling, IS-LM/IS-MP-PC Frameworks, Comparative Statics.
+* **Research & Analysis:** In-depth Market Research, Quantitative Methodologies, Web & Digital Analytics, Macroeconomic Modeling, IS-LM/IS-MP-PC Frameworks, Comparative Statics.
 * **Technical Skills:** JavaScript (ES6+), HTML5, CSS3, Node.js, Interactive Data Visualization.
 * **Writing & Communications:** Executive Copywriting, Thought Leadership Production.
 * **Project Management:** Budgeting, Technical Workflows, E-commerce Operations.
