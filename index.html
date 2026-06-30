@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malin Anderson - Economics & Cultural Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0e14;
+            --surface: #151a24;
+            --surface-hover: #1c2331;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --accent: #00f0ff;
+            --accent-glow: rgba(0, 240, 255, 0.15);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* Subtle grid background */
+            background-image: linear-gradient(var(--surface) 1px, transparent 1px),
+                              linear-gradient(90deg, var(--surface) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Mouse tracking glow */
+        #glow {
+            position: fixed;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, var(--accent-glow) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+            z-index: -1;
+            transition: opacity 0.3s;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 100px 40px;
+            position: relative;
+        }
+
+        header {
+            margin-bottom: 80px;
+        }
+
+        .role-eyebrow {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            color: var(--accent);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1.1;
+            margin-bottom: 30px;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+            border-top: 1px solid var(--surface);
+            padding-top: 20px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        section {
+            margin-bottom: 80px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: -0.02em;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        h2::before {
+            content: '';
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: var(--accent);
+        }
+
+        .summary-text {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 800px;
+            font-weight: 300;
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+            padding: 30px;
+            border: 1px solid var(--surface);
+            background: rgba(21, 26, 36, 0.4);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0;
+            width: 2px;
+            height: 0;
+            background: var(--accent);
+            transition: height 0.4s ease;
+        }
+
+        .experience-item:hover {
+            background: var(--surface-hover);
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .experience-item:hover::before {
+            height: 100%;
+        }
+
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .item-title {
+            font-size: 1.25rem;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        .item-date {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            margin-bottom: 12px;
+            color: var(--text-secondary);
+            padding-left: 20px;
+            line-height: 1.7;
+        }
+
+        ul li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 10px;
+            width: 6px;
+            height: 1px;
+            background: var(--accent);
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-category {
+            background: transparent;
+            border-top: 1px solid var(--surface);
+            padding-top: 20px;
+        }
+
+        .skill-category h3 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 20px;
+            color: var(--text-primary);
+        }
+
+        .skill-tag {
+            display: inline-block;
+            padding: 6px 12px;
+            background: var(--surface);
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            border-radius: 2px;
+            margin: 0 8px 8px 0;
+            border: 1px solid transparent;
+            transition: all 0.2s ease;
+        }
+
+        .skill-tag:hover {
+            color: var(--accent);
+            border-color: var(--accent);
+            background: rgba(0, 240, 255, 0.05);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 3rem; }
+            .container { padding: 60px 20px; }
+        }
+
+        @media print {
+            body { background: white; color: black; background-image: none; }
+            .experience-item { background: none; border: none; border-bottom: 1px solid #ccc; padding: 15px 0; margin-bottom: 20px; }
+            .experience-item::before, #glow, h2::before { display: none; }
+            h1, h2, .item-title { color: black; }
+            .reveal { opacity: 1; transform: none; }
+            .skill-category { break-inside: avoid; }
+        }
+    </style>
+</head>
+<body>
+    <div id="glow"></div>
+    <div class="container">
+        <header class="reveal">
+            <span class="role-eyebrow">Politics, Philosophy & Economics / Cultural Policy</span>
+            <h1>Malin Anderson</h1>
+            <div class="contact-info">
+                <span class="contact-item">Brighton, England</span>
+                <span class="contact-item">07562248838</span>
+                <span class="contact-item">malinanderson97@gmail.com</span>
+            </div>
+        </header>
+
+        <section class="reveal">
+            <h2>Professional Summary</h2>
+            <p class="summary-text">
+                Second-year Politics, Philosophy & Economics (PPE) student and Cultural Policy Researcher combining rigorous academic methodologies with extensive experience in data analytics, market research, and strategic communications. Adept at translating complex cultural and market data into actionable insights and thought leadership content. Seeking to leverage quantitative analysis, structural analysis, and executive writing skills to support policy, research, or operational projects.
+            </p>
+        </section>
+
+        <section>
+            <h2 class="reveal">Education</h2>
+            <div class="experience-item reveal">
+                <div class="item-header">
+                    <span class="item-title">Politics, Philosophy & Economics Student | Sussex University</span>
+                    <span class="item-date">Sep 2024 - Present</span>
+                </div>
+                <ul>
+                    <li>Full-time student at a Russell Group University, currently averaging a First-Class Honours.</li>
+                    <li><strong>Key Methodologies:</strong> Quantitative data analysis, economic modeling, structural institutional analysis, and formal logic.</li>
+                    <li><strong>Selected First-Class Module Results:</strong> Macroeconomics 1 (94%), Introduction to Mathematics for Finance and Economics (87%), Reason and Argument (80%), Microeconomics 1 (78%), Microeconomics 2 (73%), and European Politics (72%).</li>
+                </ul>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="reveal">Relevant Professional Experience</h2>
+
+            <div class="experience-item reveal">
+                <div class="item-header">
+                    <span class="item-title">Creator & Developer | Economo</span>
+                    <span class="item-date">Jun 2026 - Present</span>
+                </div>
+                <ul>
+                    <li>Developed an interactive economic simulation tool translating Blanchard’s IS-MP-PC textbook models into a live, parameter-driven computational engine for intermediate learners.</li>
+                    <li>Modeled complex economic relationships computationally, calculating derived multipliers and reduced-form responses across goods markets, monetary policy, and exchange rate dynamics.</li>
+                    <li>Implemented mathematical assertions and testing scripts to rigorously verify that the tool's computational outputs reconciled perfectly with theoretical textbook derivations.</li>
+                    <li>Designed data-driven visualizations to map complex theoretical concepts into intuitive, interactive learning modules.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item reveal">
+                <div class="item-header">
+                    <span class="item-title">Founder & Operator | E-commerce Reselling Business</span>
+                    <span class="item-date">Oct 2024 - Present</span>
+                </div>
+                <ul>
+                    <li>Manage end-to-end e-commerce operations, including inventory sourcing, dynamic pricing, and customer relations.</li>
+                    <li>Apply applied microeconomic principles to analyze market trends, optimize profit margins, and identify high-demand, low-supply retail niches.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item reveal">
+                <div class="item-header">
+                    <span class="item-title">Digital Marketing Strategist | The Butcher Corporation</span>
+                    <span class="item-date">Mar 2023 - Present</span>
+                </div>
+                <ul>
+                    <li>Provide regular performance reports and extract actionable insights using Google Analytics.</li>
+                    <li>Collaborate with content teams to research and produce thought leadership content.</li>
+                    <li>Manage strategic campaigns, successfully driving a 30% increase in website traffic and generating 25% more leads.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item reveal">
+                <div class="item-header">
+                    <span class="item-title">Event Organizer | Blitz Events LTD</span>
+                    <span class="item-date">Apr 2024 - Present</span>
+                </div>
+                <ul>
+                    <li>Sole organizer of a nighttime event series combining Contemporary Art and Dance Music.</li>
+                    <li>Manage end-to-end logistics, operational frameworks, and strategic planning.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item reveal">
+                <div class="item-header">
+                    <span class="item-title">Social Media Manager | Alma Art</span>
+                    <span class="item-date">Sep 2022 - Dec 2022</span>
+                </div>
+                <ul>
+                    <li>Conducted in-depth market research and devised a comprehensive strategic plan for a Web3 digital collection.</li>
+                    <li>Authored website copy, launched a blog series, and created interactive content to successfully drive audience engagement.</li>
+                    <li>Grew digital audience from 0 to 28K in under a month and secured the #4 trending spot on popular marketplaces.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item reveal">
+                <div class="item-header">
+                    <span class="item-title">Co-Founder | Dexter Inspire & Dexter Studios</span>
+                    <span class="item-date">Mar 2018 - Oct 2020</span>
+                </div>
+                <ul>
+                    <li>Managed multimedia resources, technical workflows, budgeting, and end-to-end project execution.</li>
+                    <li>Utilized innovative software applications to optimize operational efficiency, reducing programming time from one month to under a week.</li>
+                    <li>Delivered projects for high-profile clients including British Airways and RHS Hampton Court Garden Festival.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="reveal">
+            <h2>Core Competencies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Research & Analysis</h3>
+                    <div>
+                        <span class="skill-tag">Market Research</span>
+                        <span class="skill-tag">Data Analytics</span>
+                        <span class="skill-tag">Google Analytics</span>
+                        <span class="skill-tag">Macroeconomic Modeling</span>
+                        <span class="skill-tag">IS-LM/IS-MP-PC</span>
+                        <span class="skill-tag">Comparative Statics</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Technical Skills</h3>
+                    <div>
+                        <span class="skill-tag">JavaScript (ES6+)</span>
+                        <span class="skill-tag">HTML5 & CSS3</span>
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Interactive Data Visualization</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Writing & Comms</h3>
+                    <div>
+                        <span class="skill-tag">Executive Copywriting</span>
+                        <span class="skill-tag">Thought Leadership Production</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Project Management</h3>
+                    <div>
+                        <span class="skill-tag">Budgeting</span>
+                        <span class="skill-tag">Technical Workflows</span>
+                        <span class="skill-tag">E-commerce Operations</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Mouse tracking glow effect
+        const glow = document.getElementById('glow');
+        let isMouseMoving = false;
+        
+        document.addEventListener('mousemove', (e) => {
+            isMouseMoving = true;
+            glow.style.left = e.clientX + 'px';
+            glow.style.top = e.clientY + 'px';
+            glow.style.opacity = '1';
+        });
+
+        document.addEventListener('mouseleave', () => {
+            glow.style.opacity = '0';
+        });
+
+        // Scroll reveal animation using Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.15
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach((element) => {
+            observer.observe(element);
+        });
+
+        // Add a slight stagger delay for experience items
+        document.querySelectorAll('.experience-item').forEach((item, index) => {
+            item.style.transitionDelay = `${(index % 3) * 0.1}s`;
+        });
+    </script>
+</body>
+</html>
