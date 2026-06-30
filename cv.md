@@ -30,7 +30,7 @@ October 2024 - Present
 * Apply applied microeconomic principles to analyze market trends, optimize profit margins, and identify high-demand, low-supply retail niches.
 
 **Digital Marketing Strategist | The Butcher Corporation**
-March 2023 - Present
+July 2023 - April 2025
 
 * Provide regular performance reports and extract actionable insights using Google Analytics.
 * Collaborate with content teams to research and produce thought leadership content.
@@ -43,14 +43,14 @@ April 2024 - Present
 * Manage end-to-end logistics, operational frameworks, and strategic planning.
 
 **Social Media Manager | Alma Art**
-September 2022 - December 2022
+September 2022 - March 2023
 
 * Conducted in-depth market research and devised a comprehensive strategic plan for a Web3 digital collection.
 * Authored website copy, launched a blog series, and created interactive content to successfully drive audience engagement.
 * Grew digital audience from 0 to 28K in under a month and secured the #4 trending spot on popular marketplaces.
 
 **Co-Founder | Dexter Inspire & Dexter Studios**
-March 2018 - October 2020
+March 2019 - September 2020
 
 * Managed multimedia resources, technical workflows, budgeting, and end-to-end project execution.
 * Utilized innovative software applications to optimize operational efficiency, reducing programming time from one month to under a week.
